@@ -4,7 +4,7 @@ width = 100%
 height = 60
 dpi = 220
 
-background = #00000000
+background = #2E3440
 foreground = #ccffffff
 
 line-color = ${bar/bottom.background}
@@ -80,7 +80,7 @@ bar-indicator-font = 3
 bar-indicator-foreground = #ff
 bar-fill = ─
 bar-fill-font = 3
-bar-fill-foreground = #c9665e
+bar-fill-foreground = #D8DEE9
 bar-empty = ─
 bar-empty-font = 3
 bar-empty-foreground = #44
@@ -421,8 +421,8 @@ label-mode-background = #e60053
 ; Default: %icon%  %name%
 label-focused =  %index%
 label-focused-foreground = #ffffff
-label-focused-background = #3f3f3f
-label-focused-underline = #fba922
+label-focused-background = #4C566A
+label-focused-underline = #D8DEE9
 label-focused-padding = 4
 
 ; Available tokens:
@@ -460,14 +460,5 @@ label-separator = |
 label-separator-padding = 2
 label-separator-foreground = #ffb52a
 
-[module/spotify]
-type = custom/script
-interval = 5
-format-prefix = "  "
-format = <label>
-exec = /home/nicomazz97/.config/polybar/spotify.py
-
-
-format-underline = #1db954
 
 ; vim:ft=dosini
