@@ -100,11 +100,13 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+set $workspace3 "3 Slack"
+set $workspace4 "4 Telegram"
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -115,14 +117,17 @@ bindsym $mod+0 workspace 10
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
 bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
+
+assign [class="Slack"] $workspace3
+assign [class="TelegramDesktop"] $workspace4
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -170,16 +175,16 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 # exec gnome-settings-daemon to launch
 exec /usr/bin/gnome-settings-daemon
 
-exec_always feh --bg-scale /home/ayrat/Pictures/nord.jpeg
+exec_always feh --bg-scale /home/ayrat/Pictures/room.jpg
 exec xrandr --dpi 220
 exec --no-startup-id nm-applet
-exec --no-startup-id dropbox start
+exec --no-startup-id redshift -l 55.75:37.612
 
-bindsym $mod+Mod1+1 exec "xrandr --dpi 220 --fb 3840x2160 --output eDP1 --mode 3840x2160 --scale 1x1 --pos 0x0 --output HDMI1 --off && feh --bg-scale /home/ayrat/Pictures/wallpaper1.png"
+bindsym $mod+Mod1+1 exec "xrandr --dpi 220 --fb 3840x2160 --output eDP-1 --mode 3840x2160 --scale 1x1 --pos 0x0 --output HDMI-1 --off && feh --bg-scale /home/ayrat/Pictures/mountain.png"
 
-bindsym $mod+Mod1+2 exec "xrandr --dpi 220 --fb 7680x2160 --output eDP1 --mode 3840x2160 --scale 1x1 --pos 0x0 --output HDMI1 --scale 2x2 --mode 1920x1080 --pos 3840x0 --panning 3840x2160+3840+0 && feh --bg-scale /home/ayrat/Pictures/wallpaper1.png"
+bindsym $mod+Mod1+2 exec "xrandr --dpi 220 --fb 7680x2160 --output eDP-1 --mode 3840x2160 --scale 1x1 --pos 0x0 --output HDMI-1 --scale 2x2 --mode 1920x1080 --pos 3840x0 --panning 3840x2160+3840+0 && feh --bg-scale /home/ayrat/Pictures/mountain.png"
 
-bindsym $mod+Mod1+3 exec "xrandr --dpi 220 --fb 7680x2160 --output eDP1 --mode 3840x2160 --scale 1x1 --pos 0x0 --output HDMI1 --scale 1.5x1.5 --mode 2560x1440 --pos 3840x0 --panning 3840x2160+3840+0 && feh --bg-scale /home/ayrat/Pictures/wallpaper1.png"
+bindsym $mod+Mod1+3 exec "xrandr --dpi 220 --fb 7680x2160 --output eDP-1 --mode 3840x2160 --scale 1x1 --pos 0x0 --output HDMI-1 --scale 1.5x1.5 --mode 2560x1440 --pos 3840x0 --panning 3840x2160+3840+0 && feh --bg-scale /home/ayrat/Pictures/mountain.png"
 
 bindsym $mod+Mod1+p exec "scrot ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png"
 bindsym $mod+Mod1+u exec "scrot -u ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png"
@@ -216,6 +221,8 @@ exec_always xautolock -time 5 -locker $HOME/.config/i3/lock.sh &
 
 exec "setxkbmap -layout us,ru"
 exec "setxkbmap -option 'grp:alt_caps_toggle'"
+exec slack
+exec telegram-desktop
 
 exec i3-msg restart
 

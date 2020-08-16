@@ -419,7 +419,7 @@ label-mode-background = #e60053
 ;   %index%
 ;   %output%
 ; Default: %icon%  %name%
-label-focused =  %index%
+label-focused =  %name%
 label-focused-foreground = #ffffff
 label-focused-background = #4C566A
 label-focused-underline = #D8DEE9
@@ -431,7 +431,7 @@ label-focused-padding = 4
 ;   %index%
 ;   %output%
 ; Default: %icon%  %name%
-label-unfocused = %index%
+label-unfocused = %name%
 label-unfocused-padding = 4
 
 ; Available tokens:
